@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h3>How Long is It?</h3>
+	<form method="POST" action="{% url 'how_long_is_it' %}">{% csrf_token %}
+	<p> Number Value: <input placeholder="Values........." name="long" required=""></p>
+	<select name="select">
+		<option value="Inche">Inche</option>
+		<option value="Yard">Yard</option>
+		<option value="Meter">Meter</option>
+		<option value="Centimeter">Centimeter</option>
+		<option value="Mile">Mile</option>
+		<option value="Kilometer">Kilometer</option>
+		<option value="Foot">Foot</option>
+	</select>
+	<p id="how_long_is_it" class="wrapper">Answer :&nbsp;{{ r }}</p>
+	<button class="btn btn-outline-danger" type="submit">Calculate</button>
+	<input class="btn btn-secondary" type="reset" value="Reset"><br>
+	<strong style="color:#001a66">{{ m }}</strong>
+</form>	
+</div>
+{% endblock %}

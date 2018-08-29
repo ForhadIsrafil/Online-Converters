@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h3>Mean Median Mode And Variance</h3>
+	<form method="POST" action="{% url 'mmmv' %}">{% csrf_token %}
+	<p> Numbers(Decimal): <input type="text" placeholder="Seperate by Spaces" name="value" required=""></p>
+	
+	<p id=""><b> Asnswers :</b>&nbsp;{% for i in c %}<ul>: {{ i }}</ul>{% endfor %}</p>
+	<button class="btn btn-outline-danger" type="submit">Calculate</button>
+	<input class="btn btn-secondary" type="reset" value="Reset"><br>
+	<strong style="color:#001a66">{{ m }}</strong><br>
+</form>	
+</div>
+{% endblock %}

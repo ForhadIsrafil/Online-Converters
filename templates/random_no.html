@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h3>Generate Random Number</h3>
+	<form method="POST" action="{% url 'random_no' %}">{% csrf_token %}
+
+    <p>Total Number: <input type="Number" placeholder="Showing Total Number" maxlength="4" name="total_number" required=""></p>
+    <p>Lower Limit Number: <input type="Number" placeholder="Lower Limit" name="lower_limit_number" maxlength="4" required=""></p>
+    <p>Upper Limit Number: <input type="Number" placeholder="Upper Limit" name="upper_limit_number" maxlength="4" required=""></p>
+	<button class="btn btn-outline-danger" type="submit">Calculate</button>
+	<input class="btn btn-outline-secondary" type="reset" value="Reset"><br>
+	Note: Number limitation,Not more than length 5.<br>
+	<strong style="color:#001a66">{{ e }}</strong> <br>
+	<b>Random Numbers :</b><p style="display:block"> {% for i in n %} {{ i }} {% endfor %}</p>
+</form>	
+</div>
+{% endblock %}
